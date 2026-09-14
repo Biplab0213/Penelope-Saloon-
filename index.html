@@ -3,19 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penelope Salon | Beauty Salon in Delano, CA</title>
-    <meta name="description" content="Penelope Salon is a local beauty salon in Delano, CA at 1031 Main St. Explore salon services, read customer reviews, view photos, and request an appointment." />
+    <title>Penelope Salon | Hair & Beauty Salon in Delano, CA</title>
+    <meta name="description" content="Penelope Salon is a premier hair and beauty salon at 1031 Main St, Delano, CA. Specializing in precision haircuts, custom hair color, balayage, and styling. Call 661-372-7001 or book an appointment." />
+    <link rel="canonical" href="https://penelope-saloon.vercel.app/" />
+
+    <!-- Geo Metadata for Local Search -->
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="Delano, California" />
+    <meta name="geo.position" content="35.770239;-119.246060" />
+    <meta name="ICBM" content="35.770239, -119.246060" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Penelope Salon | Beauty Salon in Delano, CA" />
-    <meta property="og:description" content="Penelope Salon is a local beauty salon in Delano, CA at 1031 Main St. Explore salon services, read customer reviews, view photos, and request an appointment." />
+    <meta property="og:url" content="https://penelope-saloon.vercel.app/" />
+    <meta property="og:title" content="Penelope Salon | Hair & Beauty Salon in Delano, CA" />
+    <meta property="og:description" content="Penelope Salon is a premier hair and beauty salon at 1031 Main St, Delano, CA. Specializing in precision haircuts, custom hair color, balayage, and styling. Call 661-372-7001 or book an appointment." />
+    <meta property="og:image" content="https://penelope-saloon.vercel.app/images/unnamed-3.webp" />
     <meta property="og:site_name" content="Penelope Salon" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Penelope Salon | Beauty Salon in Delano, CA" />
-    <meta name="twitter:description" content="Penelope Salon is a local beauty salon in Delano, CA at 1031 Main St. Explore salon services, read customer reviews, view photos, and request an appointment." />
+    <meta name="twitter:title" content="Penelope Salon | Hair & Beauty Salon in Delano, CA" />
+    <meta name="twitter:description" content="Penelope Salon is a premier hair and beauty salon at 1031 Main St, Delano, CA. Specializing in precision haircuts, custom hair color, balayage, and styling. Call 661-372-7001 or book an appointment." />
+    <meta name="twitter:image" content="https://penelope-saloon.vercel.app/images/unnamed-3.webp" />
 
     <!-- Google Fonts: Cormorant Garamond / Playfair Display & Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,50 +36,147 @@
     <!-- Favicon: Monogram P -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23171717'/%3E%3Ctext x='50%25' y='55%25' font-family='serif' font-size='20' font-weight='bold' fill='%23C9A96A' text-anchor='middle' dominant-baseline='central'%3EP%3C/text%3E%3C/svg%3E" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data: Verified LocalBusiness & WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BeautySalon",
-      "name": "Penelope Salon",
-      "image": "https://lh3.googleusercontent.com/p/AF1QipN",
-      "telephone": "+1-661-372-7001",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1031 Main St",
-        "addressLocality": "Delano",
-        "addressRegion": "CA",
-        "postalCode": "93215",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 35.7689,
-        "longitude": -119.2472
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
+          "@type": ["BeautySalon", "HairSalon"],
+          "@id": "https://penelope-saloon.vercel.app/#salon",
+          "name": "Penelope Salon",
+          "url": "https://penelope-saloon.vercel.app/",
+          "logo": "https://penelope-saloon.vercel.app/images/unnamed-3.webp",
+          "image": [
+            "https://penelope-saloon.vercel.app/images/unnamed-3.webp",
+            "https://penelope-saloon.vercel.app/images/unnamed-5.webp",
+            "https://penelope-saloon.vercel.app/images/unnamed-4.webp"
           ],
-          "opens": "00:00",
-          "closes": "23:59"
+          "description": "Penelope Salon is a local hair and beauty salon in Delano, California at 1031 Main St. Providing haircuts, hair coloring, balayage, dimensional highlights, blowouts, and restorative hair treatments.",
+          "telephone": "+1-661-372-7001",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1031 Main St",
+            "addressLocality": "Delano",
+            "addressRegion": "CA",
+            "postalCode": "93215",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.770239,
+            "longitude": -119.246060
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "69",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Hair & Beauty Services",
+            "itemListElement": [
+              {
+                "@type": "OfferCatalog",
+                "name": "Haircuts & Styling",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Haircut & Styling",
+                      "url": "https://penelope-saloon.vercel.app/services/haircut"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Signature Blowout & Thermal Styling",
+                      "url": "https://penelope-saloon.vercel.app/services/hair-styling"
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Hair Color Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Custom Hair Color & Balayage",
+                      "url": "https://penelope-saloon.vercel.app/services/hair-color"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Dimensional Highlights",
+                      "url": "https://penelope-saloon.vercel.app/services/highlights"
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Specialty Hair Care",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Nourishing Scalp & Hair Treatment",
+                      "url": "https://penelope-saloon.vercel.app/services/hair-spa"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Special Occasion & Updo Styling",
+                      "url": "https://penelope-saloon.vercel.app/services/special-occasions"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "sameAs": [
+            "https://share.google/BFp3kJDRRqVW2DKQX"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://penelope-saloon.vercel.app/#website",
+          "name": "Penelope Salon",
+          "url": "https://penelope-saloon.vercel.app/",
+          "publisher": {
+            "@id": "https://penelope-saloon.vercel.app/#salon"
+          }
         }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "69",
-        "bestRating": "5"
-      },
-      "priceRange": "$$"
+      ]
     }
     </script>
   </head>

@@ -47,8 +47,13 @@ export const Gallery: React.FC = () => {
   return (
     <div id="gallery-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="Penelope Salon Gallery | Delano, CA"
-        description="Explore the Penelope Salon gallery and see the salon environment, beauty work, and style inspiration."
+        title="Penelope Salon Gallery | Hair & Beauty Photos Delano, CA"
+        description="Explore the Penelope Salon photo gallery featuring our 1031 Main St Delano storefront, styling workstations, balayage, and haircuts."
+        canonicalPath="/gallery"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Gallery', path: '/gallery' },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

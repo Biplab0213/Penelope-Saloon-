@@ -32,6 +32,8 @@ export const initialBusinessSettings: BusinessSettings = {
   googleProfileUrl: 'https://share.google/BFp3kJDRRqVW2DKQX',
   googleReviewUrl: 'https://share.google/BFp3kJDRRqVW2DKQX',
   primaryKeyword: 'beauty salon in Delano CA',
+  latitude: 35.770239,
+  longitude: -119.246060,
 };
 
 export const initialServices: ServiceItem[] = [
@@ -41,17 +43,35 @@ export const initialServices: ServiceItem[] = [
     slug: 'haircut-styling',
     category: 'hair',
     categoryLabel: 'Hair Services',
-    description: 'Personalized haircut and styling tailored to your desired look, face shape, and lifestyle.',
+    description: 'Personalized haircut and styling tailored to your desired look, face shape, and lifestyle in Delano, CA.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '45–60 mins',
     imageUrl: salonImages.haircut,
     featured: true,
     published: true,
+    seoTitle: 'Haircut & Hair Styling in Delano, CA | Penelope Salon',
+    seoDescription: 'Looking for a precision haircut in Delano, CA? Penelope Salon at 1031 Main St provides custom cuts, texturizing, and professional styling for women, men, and children.',
+    benefits: [
+      'Tailored cut designed for your unique face shape, hair density, and everyday routine',
+      'Removes split ends and restores healthy movement, volume, and bounce',
+      'Includes a relaxing hair wash, scalp massage, and complete blowout finish',
+      'Easy-to-manage silhouette that holds its shape between salon visits'
+    ],
     whatToExpect: [
       'One-on-one consultation to discuss your ideal cut and maintenance routine',
       'Relaxing hair wash and scalp massage in our comfortable lounge',
       'Precision scissor or razor cut with personalized texturing',
       'Professional blowout and finishing style'
+    ],
+    preparationTips: [
+      'Bring reference photos of styles, lengths, or bangs you admire',
+      'Wear your hair how you normally wear it day-to-day for consultation',
+      'Feel free to share any styling challenges you face at home'
+    ],
+    aftercareTips: [
+      'Schedule a routine trim every 6 to 8 weeks to maintain shape and prevent split ends',
+      'Use professional salon-grade shampoos and heat protectant sprays when heat styling',
+      'Avoid high heat settings on hair dryers to preserve cuticle hydration'
     ],
     idealFor: [
       'Refreshing your current shape or trying a brand new silhouette',
@@ -66,6 +86,10 @@ export const initialServices: ServiceItem[] = [
       {
         q: 'Can I bring reference photos?',
         a: 'Absolutely! Reference photos of lengths and styles you like are always welcome during consultation.'
+      },
+      {
+        q: 'Do you cut all hair textures?',
+        a: 'Yes, our stylists are experienced with straight, wavy, curly, and thick hair textures.'
       }
     ],
     isEditablePlaceholder: true,
@@ -76,17 +100,35 @@ export const initialServices: ServiceItem[] = [
     slug: 'custom-hair-color-balayage',
     category: 'color',
     categoryLabel: 'Hair Color',
-    description: 'Personalized color services tailored to your desired look, from seamless sun-kissed balayage to rich full-coverage color.',
+    description: 'Personalized color services tailored to your desired look, from seamless sun-kissed balayage to rich full-coverage color in Delano, CA.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '2–3.5 hours',
     imageUrl: salonImages.balayage,
     featured: true,
     published: true,
+    seoTitle: 'Hair Color & Balayage in Delano, CA | Penelope Salon',
+    seoDescription: 'Expert hair color and balayage at Penelope Salon in Delano, CA. Seamless lived-in blondes, rich brunettes, gray blending, and vibrant tones at 1031 Main St.',
+    benefits: [
+      'Customized color placement that creates seamless, natural-looking grow-out lines',
+      'Formulated with premium conditioning color lines that maintain hair health and shine',
+      'Personalized shade selection matching your undertone, eye color, and personal style',
+      'Versatile options ranging from subtle sun-kissed dimension to bold full transformations'
+    ],
     whatToExpect: [
       'In-depth color consultation and tone assessment',
       'Custom color formulation matching your skin undertone and hair goals',
       'Careful application with hair protection treatments',
       'Toning glaze and hydrating rinse for long-lasting vibrancy'
+    ],
+    preparationTips: [
+      'Do not wash hair with heavy oils immediately before your color appointment',
+      'Bring 2-3 inspiration photos illustrating both what you love and what tones you prefer to avoid',
+      'Disclose your complete hair history (previous box dyes, bleaches, or henna) for accurate formulation'
+    ],
+    aftercareTips: [
+      'Wait at least 48 hours before washing hair to let the color molecules lock into the cuticle',
+      'Always wash with sulfate-free, color-protecting shampoo and lukewarm water',
+      'Use a weekly deep-conditioning moisture mask and apply heat protectant before blow-drying'
     ],
     idealFor: [
       'Soft dimensional lived-in blonde, caramel, or mocha tones',
@@ -97,6 +139,10 @@ export const initialServices: ServiceItem[] = [
       {
         q: 'How do I maintain my color at home?',
         a: 'We recommend sulfate-free, color-safe shampoos and cool water rinses to keep your tone brilliant.'
+      },
+      {
+        q: 'What is the difference between balayage and traditional highlights?',
+        a: 'Balayage is a hand-painted technique that creates a soft, graduated sweep of color with a gentle root grow-out. Traditional foil highlights start closer to the scalp for a more uniform brightness from root to tip.'
       }
     ],
     isEditablePlaceholder: true,
@@ -107,20 +153,42 @@ export const initialServices: ServiceItem[] = [
     slug: 'dimensional-highlights',
     category: 'color',
     categoryLabel: 'Hair Color',
-    description: 'Fine foil or hand-painted highlights providing multidimensional contrast, brightness, and movement.',
+    description: 'Fine foil or hand-painted highlights providing multidimensional contrast, brightness, and movement at Penelope Salon in Delano.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '2–3 hours',
     imageUrl: salonImages.highlights,
     featured: true,
     published: true,
+    seoTitle: 'Dimensional Highlights in Delano, CA | Penelope Salon',
+    seoDescription: 'Transform your hair with dimensional highlights at Penelope Salon in Delano, CA. Foil highlights, money piece accents, and radiant blonde tones at 1031 Main St.',
+    benefits: [
+      'Adds depth, brightness, and optical texture to both straight and curly styles',
+      'Custom placement that frames your facial features and enhances natural light reflection',
+      'Gentle lightening techniques paired with nourishing bond-protecting toners',
+      'Customizable from subtle lowlights and baby lights to full-head blonde luminosity'
+    ],
     whatToExpect: [
       'Placement mapping for natural light reflection',
       'Gentle lightening process maintaining strand integrity',
       'Custom gloss toner for optimal shine'
     ],
+    preparationTips: [
+      'Wear a shirt with an open or loose collar (avoid bulky turtlenecks)',
+      'Share how frequently you prefer to come in for touch-ups so we choose the right technique'
+    ],
+    aftercareTips: [
+      'Incorporate purple or blue toning shampoo once every 1–2 weeks to keep brassiness at bay',
+      'Use leave-in conditioning spray to keep highlighted strands silky and tangle-free'
+    ],
     idealFor: [
       'Face-framing brightness ("money piece")',
       'Subtle natural dimension or striking blonde lift'
+    ],
+    faqs: [
+      {
+        q: 'Will highlights damage my hair?',
+        a: 'We utilize professional lighteners and conditioning gloss toners to maintain strand integrity throughout the highlighting process.'
+      }
     ],
     isEditablePlaceholder: true,
   },
@@ -130,20 +198,42 @@ export const initialServices: ServiceItem[] = [
     slug: 'signature-blowout-styling',
     category: 'styling',
     categoryLabel: 'Styling',
-    description: 'Professional styling for everyday confidence, weekend outings, or special occasions.',
+    description: 'Professional styling for everyday confidence, weekend outings, or special occasions in Delano, CA.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '45–60 mins',
     imageUrl: salonImages.stylingStation,
     featured: true,
     published: true,
+    seoTitle: 'Signature Blowout & Hair Styling in Delano, CA | Penelope Salon',
+    seoDescription: 'Get sleek, bouncy, voluminous hair with our signature blowout and thermal styling at Penelope Salon, 1031 Main St, Delano, CA. Call to book your session.',
+    benefits: [
+      'Silky smooth texture and long-lasting volume that withstands Central Valley weather',
+      'Saves you time preparing for special gatherings, dinners, or business meetings',
+      'Includes a clarifying wash and deep conditioner tailored to your scalp type',
+      'Choice of sleek glass-hair flat-iron finish, soft Hollywood waves, or voluminous curls'
+    ],
     whatToExpect: [
       'Clarifying and moisturizing wash',
       'Heat protection and volumizing primer application',
       'Round-brush blowout followed by wand waves or sleek flat-iron finish'
     ],
+    preparationTips: [
+      'Simply arrive ready to relax in our wash lounge',
+      'Let your stylist know if you have sensitive scalp or preferences on water temperature'
+    ],
+    aftercareTips: [
+      'Sleep with your hair in a loose silk scrunchie or on a satin pillowcase to preserve body',
+      'Use dry shampoo at the roots on day 2 and day 3 to prolong the life of your blowout'
+    ],
     idealFor: [
       'Date nights, photo sessions, interviews, and celebrations',
       'Long-lasting bounce that lasts through the weekend'
+    ],
+    faqs: [
+      {
+        q: 'How long does a blowout usually last?',
+        a: 'Most clients enjoy their blowout for 3 to 5 days with proper dry shampoo and nightly satin care.'
+      }
     ],
     isEditablePlaceholder: true,
   },
@@ -153,20 +243,41 @@ export const initialServices: ServiceItem[] = [
     slug: 'nourishing-hair-treatment',
     category: 'beauty',
     categoryLabel: 'Beauty & Hair Care',
-    description: 'Deep conditioning and restorative care designed to replenish moisture, smooth the cuticle, and strengthen strands.',
+    description: 'Deep conditioning and restorative care designed to replenish moisture, smooth the cuticle, and strengthen strands at Penelope Salon in Delano.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '30–45 mins',
     imageUrl: salonImages.treatment,
     featured: false,
     published: true,
+    seoTitle: 'Hair Spa & Scalp Treatment in Delano, CA | Penelope Salon',
+    seoDescription: 'Revitalize dry, damaged, or color-treated hair with professional hair treatments and relaxing scalp therapy at Penelope Salon in Delano, CA.',
+    benefits: [
+      'Restores essential hydration, lipids, and amino acids to over-processed or sun-exposed hair',
+      'Calms dry or irritated scalps while stimulating healthy circulation with gentle massage',
+      'Smooths raised cuticles to combat frizz, reduce breakage, and enhance shine',
+      'Ideal booster service to pair with your haircut or color transformation'
+    ],
     whatToExpect: [
       'Invigorating scalp massage to promote circulation',
       'Intensive moisture or protein mask application',
       'Gentle warm wrap or steam infusion'
     ],
+    preparationTips: [
+      'No special prep required; this service can be added to any haircut or color session'
+    ],
+    aftercareTips: [
+      'Keep heat styling to a minimum for 48 hours after your deep conditioning treatment',
+      'Use wide-tooth combs on wet hair to avoid stretching delicate wet strands'
+    ],
     idealFor: [
       'Dry, brittle, or chemically processed hair',
       'Restoring softness before or after color services'
+    ],
+    faqs: [
+      {
+        q: 'How often should I get a deep conditioning treatment?',
+        a: 'Once every 4 to 6 weeks is recommended, particularly if you regularly heat-style or color your hair.'
+      }
     ],
     isEditablePlaceholder: true,
   },
@@ -176,19 +287,42 @@ export const initialServices: ServiceItem[] = [
     slug: 'special-occasion-styling',
     category: 'special-occasions',
     categoryLabel: 'Special Occasions',
-    description: 'Custom formal styling, textured updos, romantic curls, and event-ready looks for proms, quinceañeras, weddings, and parties.',
+    description: 'Custom formal styling, textured updos, romantic curls, and event-ready looks for proms, quinceañeras, weddings, and parties in Delano, CA.',
     priceDisplay: 'Contact for pricing',
     durationDisplay: '60–90 mins',
     imageUrl: salonImages.interior,
     featured: false,
     published: true,
+    seoTitle: 'Special Occasion & Updo Styling in Delano, CA | Penelope Salon',
+    seoDescription: 'Bridal hair, quinceañera updos, prom styles, and formal hair styling in Delano, CA at Penelope Salon. Call 661-372-7001 to discuss your event styling needs.',
+    benefits: [
+      'Long-lasting hair architecture designed to dance, photograph, and last all evening',
+      'Customized to complement the neckline and silhouette of your gown or dress',
+      'Expert placement for veils, tiaras, decorative hairpins, and florals',
+      'Accommodates individual styling or group celebrations'
+    ],
     whatToExpect: [
       'Consultation matching your hairstyle to your event attire',
       'Secure pin placement and long-hold finishing mist',
       'Optional accessory placement (veils, floral pins, or decorative clips)'
     ],
+    preparationTips: [
+      'Arrive with clean, dry hair washed the evening before for better grip and hold',
+      'Wear a button-down shirt or zip-up top so you do not disturb your hairstyle when changing',
+      'Bring all hair accessories, clips, or veils you plan to wear'
+    ],
+    aftercareTips: [
+      'Gently remove bobby pins starting from the outer layers before brushing hair out',
+      'Use gentle conditioner to break down setting sprays after your event'
+    ],
     idealFor: [
       'Weddings, bridesmaids, quinceañera courts, and formal galas'
+    ],
+    faqs: [
+      {
+        q: 'Can I do a trial run before my wedding or quinceañera?',
+        a: 'Yes! We encourage trial runs so you can test your look and ensure total confidence for your special day.'
+      }
     ],
     isEditablePlaceholder: true,
   },
@@ -420,6 +554,34 @@ export const initialFAQs: FAQItem[] = [
     question: 'What should I do if I need to change or reschedule my appointment?',
     answer: 'If you need to change your appointment date or time, please give us a call at 661-372-7001 as early as possible so we can happily accommodate you at another time.',
     category: 'Appointments',
+    published: true,
+  },
+  {
+    id: 'faq-9',
+    question: 'What are Penelope Salon\'s listed opening hours?',
+    answer: 'According to our official business listing, Penelope Salon is listed as Open 24 hours. Because specific stylist schedules and station availability vary, we recommend calling 661-372-7001 in advance or submitting an appointment request online.',
+    category: 'General',
+    published: true,
+  },
+  {
+    id: 'faq-10',
+    question: 'Where should I park when visiting the salon on Main Street in Delano?',
+    answer: 'Convenient street parking is available directly along Main Street and neighboring side streets in downtown Delano, right in front of our storefront at 1031 Main St (coordinates: 35.770239, -119.246060).',
+    category: 'Location',
+    published: true,
+  },
+  {
+    id: 'faq-11',
+    question: 'Do you serve clients from nearby communities around Delano?',
+    answer: 'Yes! While located in the heart of Delano, we frequently welcome clients from McFarland, Wasco, Richgrove, Earlimart, Pixley, and throughout the Kern County area.',
+    category: 'Location',
+    published: true,
+  },
+  {
+    id: 'faq-12',
+    question: 'What payment options are accepted?',
+    answer: 'We accept standard payment methods including cash and major credit/debit cards. Please call 661-372-7001 if you have any questions before your visit.',
+    category: 'Pricing',
     published: true,
   },
 ];

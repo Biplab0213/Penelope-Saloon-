@@ -12,8 +12,13 @@ export const Reviews: React.FC = () => {
   return (
     <div id="reviews-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="Penelope Salon Reviews | 4.4★ Delano, CA"
-        description="Read customer reviews for Penelope Salon in Delano, California and discover why local clients enjoy their salon experience."
+        title="Penelope Salon Reviews | 4.4★ Rated Salon in Delano, CA"
+        description="Read customer reviews for Penelope Salon at 1031 Main St, Delano, CA. 4.4-star rating across 69 Google reviews for haircuts, balayage, and styling."
+        canonicalPath="/reviews"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Reviews', path: '/reviews' },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

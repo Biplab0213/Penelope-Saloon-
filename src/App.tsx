@@ -18,6 +18,7 @@ import { Contact } from './pages/Contact';
 import { Admin } from './pages/Admin';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { SalonInDelano } from './pages/SalonInDelano';
 
 const MainContent: React.FC = () => {
   const { currentPath, serviceSlug } = useNavigation();
@@ -31,6 +32,9 @@ const MainContent: React.FC = () => {
     switch (currentPath) {
       case '/':
         return <Home />;
+      case '/salon-in-delano-ca':
+      case '/salon-in-delano':
+        return <SalonInDelano />;
       case '/services':
         return <Services />;
       case '/about':

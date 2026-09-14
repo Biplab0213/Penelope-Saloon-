@@ -111,8 +111,13 @@ export const Book: React.FC = () => {
   return (
     <div id="book-appointment-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="Book an Appointment | Penelope Salon Delano"
-        description="Request an appointment with Penelope Salon in Delano, CA. Choose your preferred date, time, and service."
+        title="Book an Appointment | Penelope Salon Delano, CA"
+        description="Request an appointment at Penelope Salon, 1031 Main St, Delano, CA. Select your preferred haircut, color, or treatment service date and time."
+        canonicalPath="/book"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Book Appointment', path: '/book' },
+        ]}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

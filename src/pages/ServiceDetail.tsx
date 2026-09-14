@@ -68,8 +68,27 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
   return (
     <div id="service-detail-page" className="min-h-screen py-8 sm:py-12">
       <SEOHead
-        title={`${service.name} in Delano, CA | Penelope Salon`}
-        description={`${service.name} at Penelope Salon, 1031 Main St, Delano, CA. ${service.description} Request an appointment today.`}
+        title={service.seoTitle || `${service.name} in Delano, CA | Penelope Salon`}
+        description={service.seoDescription || `${service.name} at Penelope Salon, 1031 Main St, Delano, CA. ${service.description} Request an appointment today.`}
+        canonicalPath={`/services/${service.slug}`}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+          { name: service.name, path: `/services/${service.slug}` },
+        ]}
+        serviceSchema={{
+          name: service.name,
+          description: service.description,
+          serviceType: service.categoryLabel,
+          url: `/services/${service.slug}`,
+          image: service.imageUrl,
+          price: service.priceDisplay,
+        }}
+        faqSchema={
+          service.faqs && service.faqs.length > 0
+            ? service.faqs.map((f) => ({ question: f.q, answer: f.a }))
+            : undefined
+        }
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,8 +194,25 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
           </div>
         </div>
 
-        {/* Detailed What to Expect & Ideal For */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {/* Detailed What to Expect & Benefits */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* Benefits */}
+          {service.benefits && service.benefits.length > 0 && (
+            <div className="p-7 rounded-xl bg-[#F8F5EF] border border-[#E8E1D7] shadow-sm space-y-4">
+              <h2 className="font-serif text-2xl font-bold text-[#171717]">
+                Key Benefits
+              </h2>
+              <ul className="space-y-3">
+                {service.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sm text-[#6F6A64]">
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A96A] shrink-0 mt-0.5" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* What to Expect */}
           {service.whatToExpect && (
             <div className="p-7 rounded-xl bg-[#F8F5EF] border border-[#E8E1D7] shadow-sm space-y-4">
@@ -185,23 +221,6 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
               </h2>
               <ul className="space-y-3">
                 {service.whatToExpect.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm text-[#6F6A64]">
-                    <CheckCircle2 className="w-4 h-4 text-[#C9A96A] shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Ideal For */}
-          {service.idealFor && (
-            <div className="p-7 rounded-xl bg-[#F8F5EF] border border-[#E8E1D7] shadow-sm space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#171717]">
-                Ideal For
-              </h2>
-              <ul className="space-y-3">
-                {service.idealFor.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-[#6F6A64]">
                     <Sparkles className="w-4 h-4 text-[#C9A96A] shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -212,12 +231,49 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
           )}
         </div>
 
+        {/* Preparation & Aftercare Tips */}
+        {((service.preparationTips && service.preparationTips.length > 0) || (service.aftercareTips && service.aftercareTips.length > 0)) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {service.preparationTips && service.preparationTips.length > 0 && (
+              <div className="p-7 rounded-xl bg-[#E8E1D7]/25 border border-[#E8E1D7] space-y-4">
+                <h3 className="font-serif text-xl font-bold text-[#171717]">
+                  How to Prepare for Your Appointment
+                </h3>
+                <ul className="space-y-2.5">
+                  {service.preparationTips.map((tip, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-[#6F6A64]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C9A96A] mt-2 shrink-0" />
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {service.aftercareTips && service.aftercareTips.length > 0 && (
+              <div className="p-7 rounded-xl bg-[#E8E1D7]/25 border border-[#E8E1D7] space-y-4">
+                <h3 className="font-serif text-xl font-bold text-[#171717]">
+                  At-Home Maintenance & Aftercare
+                </h3>
+                <ul className="space-y-2.5">
+                  {service.aftercareTips.map((tip, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-[#6F6A64]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C9A96A] mt-2 shrink-0" />
+                      <span>{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Service FAQs */}
         {service.faqs && service.faqs.length > 0 && (
           <div className="mb-16 p-8 rounded-xl bg-[#E8E1D7]/30 border border-[#E8E1D7]">
             <h2 className="font-serif text-2xl font-bold text-[#171717] mb-6 flex items-center gap-2">
               <HelpCircle className="w-5 h-5 text-[#C9A96A]" />
-              Common Questions About {service.name}
+              Frequently Asked Questions About {service.name}
             </h2>
             <div className="space-y-4">
               {service.faqs.map((faq, idx) => (
@@ -230,14 +286,22 @@ export const ServiceDetail: React.FC<ServiceDetailProps> = ({ slug }) => {
           </div>
         )}
 
-        {/* Local SEO Context */}
-        <div className="mb-16 p-6 rounded-lg border border-[#E8E1D7] bg-[#F8F5EF] text-xs text-[#6F6A64] leading-relaxed">
-          <p className="font-semibold text-[#171717] mb-1">
-            Penelope Salon — Beauty Salon in Delano, CA
-          </p>
-          <p>
-            Looking for a skilled hair stylist or beauty service in Delano, California? Penelope Salon provides personalized hair styling, hair coloring, and treatments tailored to clients across Kern County. Visit us on Main Street or call {settings.displayPhone} to request your reservation.
-          </p>
+        {/* Local SEO Context & Delano Landing Page Internal Link */}
+        <div className="mb-16 p-6 sm:p-8 rounded-xl border border-[#E8E1D7] bg-[#F8F5EF] text-sm text-[#6F6A64] leading-relaxed flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <p className="font-serif text-lg font-bold text-[#171717]">
+              Visit Penelope Salon in Downtown Delano, CA
+            </p>
+            <p className="text-xs sm:text-sm text-[#6F6A64]">
+              Conveniently located at 1031 Main St, Delano, CA 93215. Welcoming clients from Delano, McFarland, Wasco, Richgrove, and Earlimart.
+            </p>
+          </div>
+          <button
+            onClick={() => navigateTo('/salon-in-delano-ca')}
+            className="shrink-0 px-4 py-2.5 bg-[#171717] hover:bg-[#2a2a2a] text-[#F8F5EF] text-xs font-semibold uppercase tracking-wider rounded transition-colors self-start sm:self-center"
+          >
+            Delano Salon Guide →
+          </button>
         </div>
 
         {/* Related Services */}

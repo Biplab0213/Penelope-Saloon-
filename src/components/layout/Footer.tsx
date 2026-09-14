@@ -55,6 +55,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm">
               {[
                 { label: 'Home', path: '/' },
+                { label: 'Salon in Delano, CA', path: '/salon-in-delano-ca' },
                 { label: 'Services & Pricing', path: '/services' },
                 { label: 'About the Salon', path: '/about' },
                 { label: 'Client Gallery', path: '/gallery' },

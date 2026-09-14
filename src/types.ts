@@ -20,6 +20,8 @@ export interface BusinessSettings {
   instagramUrl?: string;
   facebookUrl?: string;
   primaryKeyword: string;
+  latitude?: number;
+  longitude?: number;
   customStorefrontUrl?: string;
   customInteriorUrl?: string;
   customWashLoungeUrl?: string;
@@ -42,7 +44,12 @@ export interface ServiceItem {
   published: boolean;
   whatToExpect?: string[];
   idealFor?: string[];
+  benefits?: string[];
+  preparationTips?: string[];
+  aftercareTips?: string[];
   faqs?: { q: string; a: string }[];
+  seoTitle?: string;
+  seoDescription?: string;
   isEditablePlaceholder?: boolean;
 }
 

@@ -34,8 +34,13 @@ export const About: React.FC = () => {
   return (
     <div id="about-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="About Penelope Salon | Delano, California"
-        description="Learn more about Penelope Salon, a local beauty salon located on Main Street in Delano, California."
+        title="About Penelope Salon | Hair & Beauty Salon in Delano, CA"
+        description="Learn more about Penelope Salon, a premier hair and beauty salon located at 1031 Main St in downtown Delano, CA. Meet our team and discover our approach."
+        canonicalPath="/about"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About Us', path: '/about' },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

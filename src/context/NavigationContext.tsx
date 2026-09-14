@@ -8,33 +8,43 @@ export interface RouteState {
 interface NavigationContextType {
   currentPath: string;
   currentSlug?: string;
+  serviceSlug?: string;
   navigateTo: (path: string) => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
+const normalizePath = (raw: string): string => {
+  const p = raw.split('?')[0].split('#')[0] || '/';
+  if (p.length > 1 && p.endsWith('/')) {
+    return p.slice(0, -1);
+  }
+  return p;
+};
+
+const getSlugFromPath = (path: string): string | undefined => {
+  const clean = normalizePath(path);
+  if (clean.startsWith('/services/')) {
+    const slug = clean.replace('/services/', '').split('/')[0];
+    return slug || undefined;
+  }
+  return undefined;
+};
+
 export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentPath, setCurrentPath] = useState<string>(() => {
-    return window.location.pathname || '/';
+    return normalizePath(window.location.pathname || '/');
   });
 
   const [currentSlug, setCurrentSlug] = useState<string | undefined>(() => {
-    const pathname = window.location.pathname || '/';
-    if (pathname.startsWith('/services/')) {
-      return pathname.replace('/services/', '');
-    }
-    return undefined;
+    return getSlugFromPath(window.location.pathname || '/');
   });
 
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname || '/';
+      const path = normalizePath(window.location.pathname || '/');
       setCurrentPath(path);
-      if (path.startsWith('/services/')) {
-        setCurrentSlug(path.replace('/services/', ''));
-      } else {
-        setCurrentSlug(undefined);
-      }
+      setCurrentSlug(getSlugFromPath(path));
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -42,23 +52,20 @@ export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   }, []);
 
   const navigateTo = (path: string) => {
-    if (path === currentPath) {
+    const normalized = normalizePath(path);
+    if (normalized === currentPath) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
     window.history.pushState({}, '', path);
-    setCurrentPath(path);
-    if (path.startsWith('/services/')) {
-      setCurrentSlug(path.replace('/services/', ''));
-    } else {
-      setCurrentSlug(undefined);
-    }
+    setCurrentPath(normalized);
+    setCurrentSlug(getSlugFromPath(normalized));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <NavigationContext.Provider value={{ currentPath, currentSlug, navigateTo }}>
+    <NavigationContext.Provider value={{ currentPath, currentSlug, serviceSlug: currentSlug, navigateTo }}>
       {children}
     </NavigationContext.Provider>
   );

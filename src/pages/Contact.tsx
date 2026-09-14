@@ -59,8 +59,13 @@ export const Contact: React.FC = () => {
   return (
     <div id="contact-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="Contact Penelope Salon | Delano, CA"
-        description="Contact Penelope Salon in Delano, California. Get directions, call for appointments, or send an inquiry."
+        title="Contact Penelope Salon | Hair & Beauty Salon in Delano, CA"
+        description="Contact Penelope Salon at 1031 Main St, Delano, CA 93215. Call 661-372-7001, get directions, or send an inquiry for haircuts, color, and salon services."
+        canonicalPath="/contact"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,15 +104,25 @@ export const Contact: React.FC = () => {
                     <p className="font-bold text-base text-[#171717]">Penelope Salon</p>
                     <p className="text-[#6F6A64]">{settings.address}</p>
                     <p className="text-[#6F6A64]">{settings.city}, {settings.state} {settings.zip}</p>
-                    <a
-                      href="https://www.google.com/maps/dir/?api=1&destination=1031+Main+St,+Delano,+CA+93215"
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={handleDirections}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#171717] hover:text-[#A98748] mt-2 underline"
-                    >
-                      Get Directions via Google Maps <ArrowUpRight className="w-3 h-3" />
-                    </a>
+                    <p className="text-xs text-[#6F6A64] font-mono mt-1">Coordinates: 35.770239, -119.246060</p>
+                    <div className="flex flex-wrap items-center gap-3 mt-2.5">
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=1031+Main+St,+Delano,+CA+93215"
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={handleDirections}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#171717] hover:text-[#A98748] underline"
+                      >
+                        Get Directions via Google Maps <ArrowUpRight className="w-3 h-3" />
+                      </a>
+                      <span className="text-[#D8D0C4]">•</span>
+                      <button
+                        onClick={() => navigateTo('/salon-in-delano-ca')}
+                        className="text-xs font-semibold text-[#171717] hover:text-[#A98748] underline"
+                      >
+                        Delano Salon Page →
+                      </button>
+                    </div>
                   </div>
                 </div>
 

@@ -40,8 +40,14 @@ export const FAQ: React.FC = () => {
   return (
     <div id="faq-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
-        title="Penelope Salon FAQ | Delano Beauty Salon"
-        description="Frequently asked questions about Penelope Salon in Delano, CA, including appointments, walk-ins, location, and services."
+        title="Penelope Salon FAQ | Delano, CA Hair & Beauty Salon"
+        description="Frequently asked questions about Penelope Salon in Delano, CA. Information on haircuts, coloring, appointments, hours, location at 1031 Main St, and parking."
+        canonicalPath="/faq"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'FAQ', path: '/faq' },
+        ]}
+        faqSchema={faqs.map((f) => ({ question: f.question, answer: f.answer }))}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -163,7 +163,20 @@ export const SalonProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const getServiceBySlug = (slug: string) => {
-    return services.find(s => s.slug === slug);
+    if (!slug) return undefined;
+    const cleanSlug = slug.toLowerCase().trim();
+    return services.find(s => {
+      if (s.slug.toLowerCase() === cleanSlug) return true;
+      if (s.id.toLowerCase() === cleanSlug) return true;
+      // Friendly SEO clean URL alias mapping
+      if ((cleanSlug === 'haircut' || cleanSlug === 'haircuts') && s.slug === 'haircut-styling') return true;
+      if ((cleanSlug === 'hair-color' || cleanSlug === 'color' || cleanSlug === 'balayage') && s.slug === 'custom-hair-color-balayage') return true;
+      if ((cleanSlug === 'highlights' || cleanSlug === 'foils') && s.slug === 'dimensional-highlights') return true;
+      if ((cleanSlug === 'hair-styling' || cleanSlug === 'blowout' || cleanSlug === 'blowouts') && s.slug === 'signature-blowout-styling') return true;
+      if ((cleanSlug === 'hair-spa' || cleanSlug === 'hair-treatment' || cleanSlug === 'deep-conditioning') && s.slug === 'nourishing-hair-treatment') return true;
+      if ((cleanSlug === 'special-occasions' || cleanSlug === 'bridal' || cleanSlug === 'updo' || cleanSlug === 'updos') && s.slug === 'special-occasion-styling') return true;
+      return false;
+    });
   };
 
   const addService = (serviceData: Omit<ServiceItem, 'id'>) => {

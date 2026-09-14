@@ -49,8 +49,10 @@ export const Home: React.FC = () => {
   return (
     <div id="home-page" className="min-h-screen">
       <SEOHead
-        title="Penelope Salon | Beauty Salon in Delano, CA"
-        description="Penelope Salon is a local beauty salon in Delano, CA at 1031 Main St. Explore salon services, read customer reviews, view photos, and request an appointment."
+        title="Penelope Salon | Hair & Beauty Salon in Delano, CA"
+        description="Penelope Salon is a premier hair and beauty salon at 1031 Main St, Delano, CA. Precision haircuts, balayage, highlights, blowouts, and treatments. Call 661-372-7001 or book today."
+        canonicalPath="/"
+        faqSchema={previewFaqs.map((f) => ({ question: f.question, answer: f.answer }))}
       />
 
       {/* 2. HERO SECTION */}
@@ -488,13 +490,16 @@ export const Home: React.FC = () => {
                     <p className="text-sm text-[#6F6A64]">
                       {settings.city}, {settings.state} {settings.zip}, United States
                     </p>
+                    <p className="text-xs text-[#6F6A64] mt-1 font-mono">
+                      Coordinates: 35.770239, -119.246060
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-[#F8F5EF] rounded-lg border border-[#E8E1D7]">
                   <Phone className="w-5 h-5 text-[#C9A96A] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs text-[#6F6A64] font-medium">Direct Line</p>
+                  <div className="flex-1">
+                    <p className="text-xs text-[#6F6A64] font-medium">Direct Line & Bookings</p>
                     <a
                       href={`tel:${settings.phone}`}
                       onClick={handleCall}
@@ -502,11 +507,14 @@ export const Home: React.FC = () => {
                     >
                       {settings.displayPhone}
                     </a>
+                    <p className="text-xs text-[#6F6A64] mt-1">
+                      Listed as Open 24 hours. Call ahead to confirm stylist availability.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=1031+Main+St,+Delano,+CA+93215"
                   target="_blank"
@@ -526,6 +534,13 @@ export const Home: React.FC = () => {
                   <Phone className="w-4 h-4 text-[#C9A96A]" />
                   Call Now
                 </a>
+
+                <button
+                  onClick={() => navigateTo('/salon-in-delano-ca')}
+                  className="px-6 py-3.5 border border-[#D8D0C4] hover:border-[#171717] text-[#171717] text-xs font-semibold uppercase tracking-wider rounded-md transition-colors"
+                >
+                  Delano Salon Guide →
+                </button>
               </div>
             </div>
 

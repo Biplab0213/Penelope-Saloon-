@@ -28,7 +28,12 @@ export const Services: React.FC = () => {
     <div id="services-page" className="min-h-screen py-10 sm:py-16">
       <SEOHead
         title="Hair & Beauty Services in Delano, CA | Penelope Salon"
-        description="Explore beauty and hair services at Penelope Salon in Delano, California. View available services and request your appointment."
+        description="Explore precision haircuts, balayage, highlights, blowouts, and restorative hair treatments at Penelope Salon in Delano, CA. View services and book online."
+        canonicalPath="/services"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

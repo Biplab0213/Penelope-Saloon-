@@ -25,6 +25,7 @@ export const Header: React.FC = () => {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
+    { label: 'Delano, CA', path: '/salon-in-delano-ca' },
     { label: 'About', path: '/about' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Reviews', path: '/reviews' },
