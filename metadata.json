@@ -1,0 +1,6 @@
+{
+  "name": "Penelope Salon",
+  "description": "Penelope Salon is a local beauty salon in Delano, CA at 1031 Main St. Explore salon services, read customer reviews, view photos, and request an appointment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
