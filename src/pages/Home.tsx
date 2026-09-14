@@ -5,7 +5,7 @@ import { salonImages } from '../assets/images';
 import { SEOHead } from '../components/common/SEOHead';
 import { TrustStrip } from '../components/common/TrustStrip';
 import { ServiceCard } from '../components/common/ServiceCard';
-import { ReviewCard } from '../components/common/ReviewCard';
+import { TestimonialsCarousel } from '../components/common/TestimonialsCarousel';
 import { 
   Phone, 
   Calendar, 
@@ -26,7 +26,6 @@ export const Home: React.FC = () => {
   const [openFaqId, setOpenFaqId] = useState<string | null>(faqs[0]?.id || null);
 
   const featuredServices = services.filter((s) => s.published).slice(0, 4);
-  const featuredReviews = reviews.slice(0, 3);
   const previewGallery = gallery.slice(0, 4);
   const previewFaqs = faqs.slice(0, 5);
 
@@ -398,60 +397,20 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. CUSTOMER REVIEWS */}
+      {/* 7. CUSTOMER REVIEWS & TESTIMONIALS SLIDER */}
       <section id="customer-reviews" className="py-16 sm:py-20 bg-[#E8E1D7]/20 border-t border-[#E8E1D7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div className="space-y-3">
-              <span className="text-xs font-semibold tracking-widest uppercase text-[#C9A96A]">
-                Genuine Client Feedback
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#171717]">
-                What Our Clients Say
-              </h2>
-              <div className="flex items-center gap-2">
-                <div className="flex text-[#C9A96A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#C9A96A]" />
-                  ))}
-                </div>
-                <span className="text-sm font-bold text-[#171717]">
-                  {settings.googleRating} Google Rating
-                </span>
-                <span className="text-xs text-[#6F6A64]">
-                  • Based on {settings.googleReviewCount} authentic reviews
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => {
-                  trackEvent('review_click', 'Read More Reviews');
-                  navigateTo('/reviews');
-                }}
-                className="px-4 py-2.5 bg-[#171717] hover:bg-[#2a2a2a] text-[#F8F5EF] text-xs font-semibold uppercase tracking-wider rounded-md transition-colors"
-              >
-                Read More Reviews
-              </button>
-              <a
-                href={settings.googleReviewUrl}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => trackEvent('review_click', 'Leave Google Review External')}
-                className="px-4 py-2.5 border border-[#171717] hover:bg-[#E8E1D7] text-[#171717] text-xs font-semibold uppercase tracking-wider rounded-md transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Leave a Google Review</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#C9A96A]" />
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {featuredReviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </div>
+          <TestimonialsCarousel
+            reviews={reviews}
+            googleRating={settings.googleRating}
+            googleReviewCount={settings.googleReviewCount}
+            googleReviewUrl={settings.googleReviewUrl}
+            onNavigateToReviews={() => {
+              trackEvent('review_click', 'Read More Reviews');
+              navigateTo('/reviews');
+            }}
+            onTrackEvent={trackEvent}
+          />
         </div>
       </section>
 

@@ -242,6 +242,34 @@ export const initialReviews: ReviewItem[] = [
     source: 'Google',
     featured: false,
   },
+  {
+    id: 'rev-06',
+    author: 'Sophia M.',
+    rating: 5,
+    date: 'Verified Client',
+    text: 'Daisy gave me the best dimensional caramel balayage! She took time explaining toning options and keeping my hair silky and healthy. I received so many compliments.',
+    source: 'Google',
+    stylistMentioned: 'Daisy',
+    featured: true,
+  },
+  {
+    id: 'rev-07',
+    author: 'Lupita T.',
+    rating: 5,
+    date: 'Delano Resident',
+    text: 'Came in for a cut and tailored blowout before a family celebration. Loved how shiny and bouncy my curls stayed all day. Clean salon, gorgeous chandeliers, and sweet stylists!',
+    source: 'Google',
+    featured: true,
+  },
+  {
+    id: 'rev-08',
+    author: 'Beatriz C.',
+    rating: 5,
+    date: 'Verified Customer',
+    text: 'Delano needed a gem like Penelope Salon right on Main St. The wash lounge chairs are so comfortable and relaxing, and the styling was flawless. Highly recommend!',
+    source: 'Google',
+    featured: true,
+  },
 ];
 
 export const initialGallery: GalleryItem[] = [
